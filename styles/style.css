@@ -6,6 +6,25 @@ body {
     box-sizing: border-box;
 }
 
+/* Light Mode */
+.post {
+    background-color: rgb(228, 228, 228);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #292b2e;
+    color: #aeaeae;
+}
+
+.dark-mode .post {
+    background-color: #333333;
+}
+
+.dark-mode .details-container {
+    background-color: #303030;
+}
+
 .header-container {
     text-align: center;
     padding: 10px;
@@ -41,6 +60,7 @@ body {
 .caption {
     padding: 30px;
     text-align: justify;
+    line-height: 25px;
 }
 
 .details-container {
@@ -104,11 +124,12 @@ body {
     background-color: #ffbe0b;
     margin-bottom: 50px;
     text-align: center;
-    /* vertical-align: middle; */
     font-weight: bold;
     padding-top: 30px;
     border-radius: 50px;
     box-shadow: inset 0 0 10px #6d4700;
+    color: #292b2e;
+    font-size: 20px;
 }
 
 .load-more-btn:hover {
