@@ -1,5 +1,11 @@
 import postsData from "../data/data.json" assert { type: "json" };
 import createPostElement from "./createPostElement.js";
+import postsConfig from "../config/postsConfig.js";
+
+let { visiblePosts, postsPerPage } = postsConfig;
+
+const layoutContainerElement = document.getElementById("layout-container");
+const loadMoreButton = createLoadMoreButton();
 
 function createLoadMoreButton() {
 	const loadMoreButtonElement = document.createElement("div");
@@ -8,11 +14,6 @@ function createLoadMoreButton() {
 	loadMoreButtonElement.textContent = "Load More";
 	return loadMoreButtonElement;
 }
-
-let visiblePosts = 4;
-const postsPerPage = 4;
-const layoutContainerElement = document.getElementById("layout-container");
-const loadMoreButton = createLoadMoreButton();
 
 export default function renderPosts() {
 	layoutContainerElement.innerHTML = "";
