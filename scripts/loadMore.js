@@ -1,8 +1,11 @@
-import postsData from "../data/data.json" assert { type: "json" };
+// import postsData from "../data/data.json" assert { type: "json" };
 import createPostElement from "./createPostElement.js";
 import postsConfig from "../config/postsConfig.js";
+import { cacheData } from "./cacheData.js";
 
-let { visiblePosts, postsPerPage } = postsConfig;
+const postsData = cacheData("../data/data.json");
+
+let { visiblePosts, postsPerPage, postsFileLocation } = postsConfig;
 
 const layoutContainerElement = document.getElementById("layout-container");
 const loadMoreButton = createLoadMoreButton();
@@ -15,8 +18,9 @@ function createLoadMoreButton() {
 	return loadMoreButtonElement;
 }
 
-export default function renderPosts() {
+export default async function renderPosts() {
 	layoutContainerElement.innerHTML = "";
+	const postsData = await cacheData(postsFileLocation);
 	const postsToRender = postsData.slice(0, visiblePosts);
 	postsToRender.forEach((post) => {
 		const postElement = createPostElement(post);
