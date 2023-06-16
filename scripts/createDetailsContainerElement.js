@@ -8,6 +8,7 @@ export default function createDetailsContainerElement(post) {
 	sourceElement.setAttribute("id", "source");
 	sourceElement.href = post.source_link;
 	sourceElement.textContent = post.source_type;
+	sourceElement.setAttribute("target", "_blank");
 
 	const likesElement = document.createElement("div");
 	likesElement.classList.add("likes");
