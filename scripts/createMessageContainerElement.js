@@ -1,3 +1,5 @@
+import { openLightbox } from "./lightbox.js";
+
 export default function createMessageContainerElement(post) {
 	const messageContainerElement = document.createElement("div");
 	messageContainerElement.classList.add("message-container");
@@ -6,7 +8,9 @@ export default function createMessageContainerElement(post) {
 	const mainImageElement = document.createElement("img");
 	mainImageElement.classList.add("main-image");
 	mainImageElement.setAttribute("id", "main-image");
+	mainImageElement.setAttribute("alt", "Post Image");
 	mainImageElement.src = post.image;
+	mainImageElement.addEventListener("click", () => openLightbox(post.image));
 
 	const captionElement = document.createElement("p");
 	captionElement.classList.add("caption");
